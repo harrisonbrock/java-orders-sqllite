@@ -1,5 +1,6 @@
 package com.harrisonbrock.orders.model;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
