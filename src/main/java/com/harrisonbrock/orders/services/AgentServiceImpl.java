@@ -22,8 +22,8 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public Agent findByAgentCode(String agentCode) {
-        return null;
+    public Agent findByAgentCode(long id) {
+        return repository.findById(id).orElse(new Agent());
     }
 
     @Override
@@ -33,9 +33,9 @@ public class AgentServiceImpl implements AgentService {
 
     @Override
     public Agent updateById(Agent agent,long id) {
-        Optional<Agent> upatingAgent = repository.findById(id);
+        Optional<Agent> updatingAgent = repository.findById(id);
 
-        if (upatingAgent.isPresent()) {
+        if (updatingAgent.isPresent()) {
             agent.setId(id);
             repository.save(agent);
             return agent;

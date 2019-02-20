@@ -24,6 +24,10 @@ public class AgentController {
         return service.getAllAgents();
     }
 
+    public Agent getAgentById(@PathVariable long id) {
+        return service.findByAgentCode(id);
+    }
+
     @PostMapping()
     public Agent addAgent(@RequestBody Agent agent) {
         return service.addAgent(agent);
