@@ -8,4 +8,5 @@ public interface AgentService {
     List<Agent> getAllAgents();
     Agent findByAgentCode(String agentCode);
     Agent addAgent(Agent agent);
+    Agent updateById(Agent agent,long id);
 }

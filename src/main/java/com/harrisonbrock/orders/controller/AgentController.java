@@ -29,4 +29,9 @@ public class AgentController {
         return service.addAgent(agent);
     }
 
+    @PutMapping("/agentcode/{id}")
+    public Agent updateAgent(@RequestBody Agent agent, @PathVariable long id) {
+        return service.updateById(agent, id);
+    }
+
 }

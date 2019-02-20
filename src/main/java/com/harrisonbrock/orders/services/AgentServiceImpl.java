@@ -5,6 +5,7 @@ import com.harrisonbrock.orders.repositories.AgentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AgentServiceImpl implements AgentService {
@@ -28,5 +29,17 @@ public class AgentServiceImpl implements AgentService {
     @Override
     public Agent addAgent(Agent agent) {
         return repository.save(agent);
+    }
+
+    @Override
+    public Agent updateById(Agent agent,long id) {
+        Optional<Agent> upatingAgent = repository.findById(id);
+
+        if (upatingAgent.isPresent()) {
+            agent.setId(id);
+            repository.save(agent);
+            return agent;
+        }
+        return new Agent();
     }
 }
