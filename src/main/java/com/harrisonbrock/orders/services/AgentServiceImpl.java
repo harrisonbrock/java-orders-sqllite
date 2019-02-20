@@ -24,4 +24,9 @@ public class AgentServiceImpl implements AgentService {
     public Agent findByAgentCode(String agentCode) {
         return null;
     }
+
+    @Override
+    public Agent addAgent(Agent agent) {
+        return repository.save(agent);
+    }
 }

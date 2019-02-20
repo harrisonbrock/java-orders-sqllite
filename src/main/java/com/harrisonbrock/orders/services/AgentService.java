@@ -7,4 +7,5 @@ import java.util.List;
 public interface AgentService {
     List<Agent> getAllAgents();
     Agent findByAgentCode(String agentCode);
+    Agent addAgent(Agent agent);
 }
