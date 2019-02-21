@@ -5,6 +5,7 @@ import com.harrisonbrock.orders.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -28,5 +29,18 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer addCustomer(Customer customer) {
         return repository.save(customer);
+    }
+
+    @Override
+    public Customer updateCustomer(Customer customer, long id) {
+
+        Optional<Customer> updateCustomer = repository.findById(id);
+
+        if (updateCustomer.isPresent()) {
+            customer.setId(id);
+            repository.save(customer);
+            return customer;
+        }
+        return null;
     }
 }

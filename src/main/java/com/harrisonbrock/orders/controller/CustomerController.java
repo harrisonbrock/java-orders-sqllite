@@ -30,4 +30,9 @@ public class CustomerController {
     public Customer addCustomer(@RequestBody Customer customer) {
         return service.addCustomer(customer);
     }
+
+    @PutMapping("/custcode/{id}")
+    public Customer updateCustomer(@RequestBody Customer customer, @PathVariable long id) {
+        return service.updateCustomer(customer, id);
+    }
 }
